@@ -29,7 +29,7 @@ export default function Login() {
       <h2 style={{ marginBottom: '1.5rem' }}>Iniciar sesión</h2>
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: 12 }}>
-          <label>Email</label>
+          <label>email</label>
           <input
             type="email"
             name="email"
@@ -56,7 +56,7 @@ export default function Login() {
         </button>
         <p style={{ textAlign: 'center', fontSize: 14, color: '#666' }}>
           ¿No tenés cuenta?{' '}
-          <Link to="/register" style={{ color: '#4f46e5' }}>Registrate</Link>
+          <Link to="/Register" style={{ color: '#4f46e5' }}>Registrate</Link>
         </p>
       </form>
     </div>
