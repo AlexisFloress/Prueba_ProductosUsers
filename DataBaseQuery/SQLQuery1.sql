@@ -1,0 +1,21 @@
+CREATE DATABASE ProductosDb;
+GO
+
+USE ProductosDb;
+GO
+
+CREATE TABLE Usuarios (
+    Id INT PRIMARY KEY IDENTITY,
+    Email NVARCHAR(255) NOT NULL UNIQUE,
+    PasswordHash NVARCHAR(255) NOT NULL,
+    Rol NVARCHAR(50) NOT NULL DEFAULT 'user'
+);
+
+CREATE TABLE Productos (
+    Id INT PRIMARY KEY IDENTITY,
+    Nombre NVARCHAR(255) NOT NULL,
+    Descripcion NVARCHAR(500) NOT NULL,
+    Precio DECIMAL(10,2) NOT NULL,
+    Stock INT NOT NULL,
+    TipoProducto NVARCHAR(100) NOT NULL
+);
