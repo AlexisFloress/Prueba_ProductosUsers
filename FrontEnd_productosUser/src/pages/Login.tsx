@@ -56,7 +56,7 @@ export default function Login() {
         </button>
         <p style={{ textAlign: 'center', fontSize: 14, color: '#666' }}>
           ¿No tenés cuenta?{' '}
-          <Link to="/Register" style={{ color: '#4f46e5' }}>Registrate</Link>
+          <Link to="/register" style={{ color: '#4f46e5' }}>Registrate</Link>
         </p>
       </form>
     </div>

@@ -40,7 +40,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("ReactApp", policy =>
-        //policy.WithOrigins("http://localhost:5173")
+        //policy.WithOrigins("http://localhost:5173")ema de diseño
         policy.WithOrigins("*")
               .AllowAnyHeader()
               .AllowAnyMethod());
