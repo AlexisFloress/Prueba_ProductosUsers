@@ -29,7 +29,7 @@ Abrí SQL Server Management Studio y ejecutá el script que está en: "DataBaseQ
 Abrí el archivo `backend/ProductosApi/appsettings.json` y editá la cadena de conexión con tus datos:
 ```json
 "ConnectionStrings": {
-  "DefaultConnection": "Server=TU_SERVIDOR;Database=ProductosDb;Trusted_Connection=True;TrustServerCertificate=True;"
+  "ConexionSql": "Server=TU_SERVIDOR;Database=ProductosDb;User ID=TuUsuario;Password=TuPassword;Trusted_Connection=true;TrustServerCertificate=true;MultipleActiveResultSets=true;"
 }
 ```
 
@@ -47,6 +47,22 @@ dotnet run
 
 La API va a quedar corriendo en una URL similar a `https://localhost:7289`.
 Podés verificar los endpoints en `https://localhost:7289/swagger/index.html`.
+Si tu backend corre en un puerto diferente al del proyecto original, tenés que actualizarlo en dos archivos:
+
+**1. `FrontEnd_productosUser/src/services/api.ts`**
+```typescript
+const api = axios.create({
+  baseURL: 'https://localhost:TU_PUERTO/api' // cambiá TU_PUERTO
+})
+```
+
+**2. `FrontEnd_productosUser/vite.config.ts`**
+```typescript
+server: {
+  proxy: {
+    '/api': 'https://localhost:TU_PUERTO' // cambiá TU_PUERTO
+  }
+}
 
 ---
 
@@ -79,23 +95,6 @@ El frontend va a quedar disponible en `http://localhost:5173`.
 ---
 ### Nota sobre el puerto del backend
 
-Si tu backend corre en un puerto diferente al del proyecto original, tenés que actualizarlo en dos archivos:
-
-**1. `FrontEnd_productosUser/src/services/api.ts`**
-```typescript
-const api = axios.create({
-  baseURL: 'https://localhost:TU_PUERTO/api' // cambiá TU_PUERTO
-})
-```
-
-**2. `FrontEnd_productosUser/vite.config.ts`**
-```typescript
-server: {
-  proxy: {
-    '/api': 'https://localhost:TU_PUERTO' // cambiá TU_PUERTO
-  }
-}
-```
 
 El puerto lo encontrás cuando levantás el backend en Visual Studio — aparece en la consola o en la barra del navegador al abrirse Swagger. Normalmente es algo como `7289`, `5001` o `5000`.
 
